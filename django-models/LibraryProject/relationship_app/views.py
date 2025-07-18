@@ -10,16 +10,17 @@ from django.contrib.auth import login
 
 
 # Create your views here.
+
 def book_list(request):
-      """Retrieves all books and renders a template displaying the list."""
-      books = Book.objects.all()  # Fetch all book instances from the database
-      context = {'book_list': books}  # Create a context dictionary with book list
-      return render(request, 'books/book_list.html', context)
+    """Retrieves all books and renders a template displaying the list."""
+    books = Book.objects.all()
+    context = {'book_list': books}
+    return render(request, 'relationship_app/list_books.html', context)
 
 
 class LibraryDetailView(DetailView):
     model = Library
-    template_name = 'libraries/library_detail.html'
+    template_name = 'relationship_app/library_detail.html'
     context_object_name = 'library'
 
 def register(request):
