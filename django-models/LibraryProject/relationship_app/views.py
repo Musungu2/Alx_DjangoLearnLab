@@ -5,6 +5,9 @@ from .models import Library
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
+from django.contrib.auth.decorators import permission_required
+from django.contrib.auth import login
+
 
 # Create your views here.
 def book_list(request):
