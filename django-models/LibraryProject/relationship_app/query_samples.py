@@ -1,6 +1,7 @@
 import os
 import sys
 import django
+from relationship_app.models import Author, Book, Library, Librarian
 
 sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 # Setup Django environment
@@ -35,7 +36,7 @@ def list_books_in_library(library_name):
 def get_librarian_for_library(library_name):
     try:
         library = Library.objects.get(name=library_name)
-        librarian = library.librarian
+        librarian = Librarian.objects.get(library=library)
         print(f"Librarian for {library.name}: {librarian.name}")
     except Library.DoesNotExist:
         print(f"Library '{library_name}' not found.")
