@@ -12,7 +12,7 @@ from django.contrib.auth import login
 
 # Create your views here.
 
-def book_list(request):
+def list_books(request):
     """Retrieves all books and renders a template displaying the list."""
     books = Book.objects.all()
     context = {'book_list': books}
