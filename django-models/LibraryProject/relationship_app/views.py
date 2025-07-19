@@ -9,6 +9,7 @@ from django.contrib.auth.decorators import permission_required
 from django.contrib.auth import login
 
 
+
 # Create your views here.
 
 def book_list(request):
@@ -33,3 +34,18 @@ def register(request):
     else:
         form = UserCreationForm()
     return render(request, 'users/register.html', {'form': form})
+
+@permission_required('relationship_app.can_add_book', raise_exception=True)
+def add_book(request):
+    # Your logic to add a book
+    return render(request, 'relationship_app/add_book.html')
+
+@permission_required('relationship_app.can_change_book', raise_exception=True)
+def edit_book(request, book_id):
+    # Logic to edit a book
+    return render(request, 'relationship_app/edit_book.html')
+
+@permission_required('relationship_app.can_delete_book', raise_exception=True)
+def delete_book(request, book_id):
+    # Logic to delete a book
+    return redirect('book_list')
