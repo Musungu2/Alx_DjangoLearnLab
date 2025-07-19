@@ -2,6 +2,9 @@ from django.urls import path
 from .views import book_list, LibraryDetailView
 from django.contrib.auth import views as auth_views
 from . import views as user_views
+from django.urls import path
+from . import views
+
 
 urlpatterns = [
     path('books/', book_list, name='book-list'),
@@ -14,4 +17,9 @@ urlpatterns = [
 
     # Registration
     path('registration/', user_views.register, name='registration'),
+    
+    # custom permissions
+    path('add_book/', views.add_book, name='add_book'),
+    path('edit_book/<int:book_id>/', views.edit_book, name='edit_book'),
+    path('delete_book/<int:book_id>/', views.delete_book, name='delete_book'),
 ]
