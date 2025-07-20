@@ -33,7 +33,8 @@ def register(request):
             return redirect('login')
     else:
         form = UserCreationForm()
-    return render(request, 'users/register.html', {'form': form})
+    return render(request, 'relationship_app/register.html', {'form': form})
+
 
 @permission_required('relationship_app.can_add_book', raise_exception=True)
 def add_book(request):
