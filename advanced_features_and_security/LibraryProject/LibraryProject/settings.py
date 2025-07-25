@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     'relationship_app',
 ]
 
+AUTH_USER_MODEL = 'bookshelf.CustomUser'
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -126,4 +128,3 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'models.CustomUser'
