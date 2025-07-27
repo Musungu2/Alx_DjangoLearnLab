@@ -130,3 +130,24 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+# Redirect all HTTP to HTTPS
+SECURE_SSL_REDIRECT = True  # Ensures all non-HTTPS traffic is redirected to HTTPS
+
+# HTTP Strict Transport Security (HSTS)
+SECURE_HSTS_SECONDS = 31536000  # Instructs browser to only use HTTPS for 1 year
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True  # Applies HSTS to all subdomains
+SECURE_HSTS_PRELOAD = True  # Allows your domain to be included in browsers' preload list
+
+# Prevent MIME-type sniffing
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# Enable browser XSS filter
+SECURE_BROWSER_XSS_FILTER = True
+
+# Ensure cookies are only sent over HTTPS
+SESSION_COOKIE_SECURE = True  # Protects session cookies
+CSRF_COOKIE_SECURE = True     # Protects CSRF cookies
+
+# Prevent clickjacking
+X_FRAME_OPTIONS = 'DENY'
