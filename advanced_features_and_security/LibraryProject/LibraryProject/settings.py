@@ -130,6 +130,21 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# SECURITY SETTINGS FOR PRODUCTION
+
+DEBUG = False  # ❗ NEVER set DEBUG = True in production
+
+# Protect against XSS, Clickjacking, and MIME sniffing
+SECURE_BROWSER_XSS_FILTER = True
+X_FRAME_OPTIONS = 'DENY'
+SECURE_CONTENT_TYPE_NOSNIFF = True
+
+# Ensure cookies are only sent over HTTPS
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+# For trusted proxy headers (e.g., if using Nginx/Heroku)
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Redirect all HTTP to HTTPS
 SECURE_SSL_REDIRECT = True  # Ensures all non-HTTPS traffic is redirected to HTTPS
