@@ -151,3 +151,6 @@ CSRF_COOKIE_SECURE = True     # Protects CSRF cookies
 
 # Prevent clickjacking
 X_FRAME_OPTIONS = 'DENY'
+
+# Tells Django to trust the `X-Forwarded-Proto` header sent by the proxy
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
