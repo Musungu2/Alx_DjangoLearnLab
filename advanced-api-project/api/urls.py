@@ -4,10 +4,10 @@ from .views import (
     BookUpdateView, BookDeleteView
 )
 
-url_patterns = [
-    path('books/', BookListView.as_view(), name='book-list'),          # GET list
-    path('books/<int:pk>/', BookDetailView.as_view(), name='book-detail'), # GET single
-    path('books/create/', BookCreateView.as_view(), name='book-create'),   # POST
-    path('books/<int:pk>/update/', BookUpdateView.as_view(), name='book-update'), # PUT/PATCH
-    path('books/<int:pk>/delete/', BookDeleteView.as_view(), name='book-delete'), #DELETE
-    ]
+urlpatterns = [
+    path('books/', BookListView.as_view(), name='book-list'),                # GET all books
+    path('books/<int:pk>/', BookDetailView.as_view(), name='book-detail'),   # GET single book
+    path('books/create/', BookCreateView.as_view(), name='book-create'),     # POST create book
+    path('books/<int:pk>/update/', BookUpdateView.as_view(), name='book-update'), # PUT/PATCH update book
+    path('books/<int:pk>/delete/', BookDeleteView.as_view(), name='book-delete'), # DELETE book
+]
