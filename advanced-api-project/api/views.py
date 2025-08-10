@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from rest_framework import generics, permissions
 from .models import Book
 from .serializers import BookSerializer
@@ -21,19 +20,18 @@ class BookDetailView(generics.RetrieveAPIView):
 class BookCreateView(generics.CreateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
-    permission_classes = [permissions.IsAuthenticated]  # Only logged-in users can create
+    permission_classes = [permissions.IsAuthenticated]  # Logged-in users can create
 
 
-# Update an existing book (PUT/PATCH) — authenticated only
+# Update an existing book (PUT/PATCH) — admin only
 class BookUpdateView(generics.UpdateAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
-    permission_classes = [permissions.IsAuthenticated]  # Only logged-in users can update
+    permission_classes = [permissions.IsAdminUser]  # Only admins can update
 
 
-# Delete a book (DELETE) — authenticated only
+# Delete a book (DELETE) — admin only
 class BookDeleteView(generics.DestroyAPIView):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
-    permission_classes = [permissions.IsAuthenticated]  # Only logged-in users can delete
-
+    permission_classes = [permissions.IsAdminUser]  # Only admins can delete
