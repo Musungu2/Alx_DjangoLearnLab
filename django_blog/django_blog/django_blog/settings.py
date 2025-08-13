@@ -12,15 +12,25 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+STATIC_URL = '/static/'
+
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
+
+TEMPLATES = [
+    {
+        'DIRS': [BASE_DIR / 'templates'],
+    },
+]
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-of+&i6d@yv4w)y(y)9%o*)!75v9r8)b5znd*1k&)$t@@md7i2q'
+SECRET_KEY = 'django-insecure-61%4!&ddy39t3k3za96*cwjyxb1rh(zl!uzj+$%no*i3o+62x#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
